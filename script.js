@@ -7,14 +7,3 @@ window.addEventListener('scroll', function () {
         header.classList.remove('scrolled'); // Remove the 'scrolled' class
     }
 });
-
-// CSS styles
-header {
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-header.scrolled {
-    background-color: #333; /* Dark background */
-    color: #fff; /* Light text */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a shadow */
-}
