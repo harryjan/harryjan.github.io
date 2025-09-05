@@ -25,6 +25,19 @@ header {
     transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scroll effect */
 }
 
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between image and name */
+}
+
+.profile-pic {
+    width: 80px; /* Adjust size as needed */
+    height: 80px; /* Adjust size as needed */
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
 header h1 a {
     text-decoration: none;
     color: inherit; /* Inherit color from parent */
@@ -86,6 +99,16 @@ main p {
     font-family: ui-sans-serif, sans-serif;
     color: #444;
     text-align: left;
+}
+
+/* Main Image Styling */
+.main-image {
+    width: 100%; /* Make image responsive to container width */
+    max-width: 100%; /* Ensure it doesn't overflow its container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Match the main content container's border-radius */
+    margin-bottom: 20px; /* Add some space below the image */
+    display: block; /* Ensure it's a block element */
 }
 
 /* Case Study & Presentation Styling */
@@ -153,6 +176,10 @@ footer {
 
     header h1 {
         font-size: 2rem; /* Smaller font size for the main title */
+    }
+
+    .header-content {
+        flex-direction: column; /* Stack image and name on small screens */
     }
 
     main {
