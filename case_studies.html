@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -25,14 +25,34 @@
     <main>
         <section>
             <h2>Case Studies</h2>
-            <p>Here you can present detailed case studies of your projects. Describe the challenge, your process, and the results.</p>
+            <div id="case-studies-container">
+                <article class="case-study-card">
+                    <a href="case_studies/atkinsrealis.html" class="case-study-link">
+                        <div class="case-study-banner" style="background-image: url('assets/atkinsrealis-banner.jpg');"></div>
+                    </a>
+                    <div class="case-study-content">
+                        <img src="assets/AtkinsRealis-Logo.png" alt="AtkinsRealis Logo" class="case-study-logo">
+                        <p>Case studies from my time at <a href="case_studies/atkinsrealis.html">AtkinsRealis</a>, a global engineering, defense and digital consultancy.</p>
+                    </div>
+                </article>
+                <article class="case-study-card">
+                    <a href="case_studies/thekey.html" class="case-study-link">
+                        <div class="case-study-banner" style="background-image: url('assets/thekey-banner.jpg');"></div>
+                    </a>
+                    <div class="case-study-content">
+                        <img src="assets/the-key-logo.png" alt="The Key Logo" class="case-study-logo">
+                        <p>Case studies from my time at <a href="case_studies/thekey.html">The Key</a>, transforming how schools are run and children learn</p>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
     <footer>
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/harryhunter/" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
-            <a href="https://x.com/harryjan" target="_blank" rel="noopener noreferrer">X</a> |
+            <a href="https://www.linkedin.com/in/harryhunter/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://x.com/harryjan" target="_blank" rel="noopener noreferrer">X/Twitter</a>
             <a href="https://harryhunter.substack.com/" target="_blank" rel="noopener noreferrer">Substack</a>
+            <a href="https://medium.com/@harryjan" target="_blank" rel="noopener noreferrer">Medium</a>
         </div>
         <p>&copy; 2025 Harry Hunter. All rights reserved.</p>
     </footer>
