@@ -99,6 +99,7 @@ main p {
     font-family: ui-sans-serif, sans-serif;
     color: #444;
     text-align: left;
+    margin-bottom: 1em; /* Add space between paragraphs */
 }
 
 /* Main Image Styling */
@@ -139,9 +140,13 @@ main p {
 }
 /* Footer Styling */
 footer {
+    max-width: 800px; /* Match the width of the main content */
+    margin: 0 auto; /* Center the footer */
     margin-top: 20px;
     font-size: 0.9rem;
     color: #777;
+    text-align: center; /* Center the text inside the footer */
+    padding: 0 20px; /* Add some padding to match main content on smaller screens */
 }
 
 /* Social Links in Footer */
