@@ -1,0 +1,67 @@
+/* General Reset */
+body, h1, p, img {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Header Styling */
+header {
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scroll effect */
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #222;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Scrolled Header Styling */
+header.scrolled {
+    background-color: #333; /* Dark background */
+    color: #fff; /* Light text */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a shadow */
+}
+
+/* Main Section Styling */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+main img {
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+main p {
+    font-size: 1rem;
+    color: #444;
+    text-align: left;
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #777;
+}
