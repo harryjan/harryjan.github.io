@@ -159,6 +159,50 @@ main p {
     margin-bottom: 2em;
 }
 
+/* Writing Page Styling */
+.writing-section {
+    margin-bottom: 2.5em;
+}
+
+.writing-section h3 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+}
+
+.article-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.article-item {
+    margin-bottom: 1.5em;
+    padding-left: 0;
+}
+
+/* Individual Article Page Styling */
+.article-content h4 {
+    font-size: 1.2rem;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    color: #333;
+}
+
+.article-content figure {
+    margin: 2em 0;
+    text-align: center;
+}
+
+.article-content figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.originally-published {
+    text-align: center;
+    color: #555;
+}
 /* Case Study & Presentation Styling */
 .case-study {
     margin-top: 30px;
