@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: AtkinsRealis - Platform Engineering - Harry Hunter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../article.css">
+</head>
+<body>
+    <header>
+        <h1><a href="../index.html">Harry Hunter</a></h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../cv.html">CV</a></li>
+                <li><a href="../case_studies.html">Case Studies</a></li>
+                <li><a href="../writing.html">Writing</a></li>
+                <li><a href="../books.html">Book Recommendations</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2 class="page-title">Case Study: AtkinsRealis - Platform Engineering</h2>
+            <article class="case-study">
+                <h3>Platform Engineering (2023/24) - Lead Cloud Architect</h3>
+                <p><strong>The Customer:</strong> Global Defense, Intelligence, and Critical National Infrastructure (CNI) Clients</p>
+                <p><strong>The Users:</strong> Internal Data Science and Application Development Teams</p>
+
+                <h4>The Challenge</h4>
+                <p>The organization was at a critical inflection point. Our ambition to drive a major AI transformation was stalled by a fragmented and inconsistent technical landscape. With a dozen cloud providers and eight separate Azure tenancies, we lacked the standardization needed for efficient development and deployment. Furthermore, our inability to meet the stringent regulatory and security requirements of our clients in the defense and intelligence sectors was putting major contracts at risk. We faced a dual challenge: building a platform robust enough to defend against state-sponsored cyber threats while simultaneously guaranteeing the 99.999% uptime our CNI clients contractually required.</p>
+
+                <h4>The Approach</h4>
+                <p>To overcome these obstacles, I designed and led the initiative to establish the organization's first central Platform Engineering team. The strategy was built on four foundational pillars:</p>
+                <ul>
+                    <li><strong>Team Formation:</strong> We established a central, multi-disciplinary team comprising Cloud Architects, DevOps Engineers, and SecOps specialists. This unified team was responsible for creating and managing a single, coherent cloud strategy, breaking down silos between development, security, and operations.</li>
+                    <li><strong>Centralization and Standardization:</strong> We radically simplified our footprint by consolidating from a dozen cloud providers to just two and collapsing eight Azure tenancies into a primary and secondary instance. As our foundational standard, we implemented the 'Azure Enterprise-Scale' landing zone framework. This provided a pre-configured, secure, and compliant blueprint for all future cloud deployments, embedding security and governance from the outset using Infrastructure as Code (IaC).</li>
+                    <li><strong>Unified Observability:</strong> To gain a holistic view of our security posture and operational health, we deployed the organization's first global cloud Security Information and Event Management (SIEM) platform. This was complemented by a global application logging and monitoring solution, ensuring deep visibility into every layer of our technology stack.</li>
+                    <li><strong>Intelligent Integration:</strong> We integrated the new observability platforms directly into our existing ITIL framework and ServiceNow tooling. This crucial step connected real-time security and operational data with our incident management and workflow processes, paving the way for AI-powered automation of tasks like threat response and resource scaling.</li>
+                </ul>
+
+                <h4>The Outcome</h4>
+                <p>The creation of the Platform Engineering function and the execution of this strategy fundamentally transformed our capabilities. The standardized platform and IaC templates accelerated our AI initiatives, allowing data science teams to provision secure, compliant environments in hours instead of months. We successfully achieved the necessary security accreditations to not only retain but also expand our contracts within the defense and intelligence communities.</p>
+                <p>Operationally, the integrated SIEM and automated workflows improved our mean time to detect (MTTD) and mean time to resolve (MTTR) security incidents by over 90%, enabling us to effectively counter sophisticated cyber threats. The resilient architecture built upon the landing zone framework ensured we consistently met our 99.999% uptime SLA, solidifying client trust and establishing a new benchmark for enterprise-grade reliability.</p>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/harryhunter/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://x.com/harryjan" target="_blank" rel="noopener noreferrer">X/Twitter</a>
+            <a href="https://harryhunter.substack.com/" target="_blank" rel="noopener noreferrer">Substack</a>
+        </div>
+        <p>&copy; 2025 Harry Hunter. All rights reserved.</p>
+    </footer>
+    <script src="../script.js"></script> 
+</html>

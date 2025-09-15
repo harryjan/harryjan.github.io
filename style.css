@@ -159,6 +159,24 @@ main p {
     margin-bottom: 2em;
 }
 
+/* Button Link Styling */
+.button-link {
+    display: inline-block;
+    background-color: #4A5568; /* A more muted, darker slate gray/blue */
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 1.5em;
+    transition: background-color 0.3s ease;
+}
+
+.button-link:hover {
+    background-color: #2D3748; /* A slightly darker shade for hover */
+}
 /* Writing Page Styling */
 .writing-section {
     margin-bottom: 2.5em;
