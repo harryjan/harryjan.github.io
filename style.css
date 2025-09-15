@@ -272,6 +272,20 @@ main p {
     margin: 0;
 }
 
+/* Image grid for case studies */
+.image-grid {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.image-grid figure {
+    flex: 1;
+    margin: 0;
+}
+
+
 /* Footer Styling */
 footer {
     max-width: 800px; /* Match the width of the main content */
@@ -323,5 +337,9 @@ footer {
 
     main {
         padding: 15px; /* Adjust padding for the main content */
+    }
+
+    .image-grid {
+        flex-direction: column;
     }
 }
