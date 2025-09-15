@@ -1,0 +1,31 @@
+/* Individual Article Page Specific Styling */
+.article-content h4 {
+    font-size: 1.2rem;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    color: #333;
+}
+
+.article-content figure {
+    margin: 2em 0;
+    text-align: center;
+}
+
+.article-content figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.article-content blockquote {
+    margin: 1.5em 0;
+    padding-left: 1.5em;
+    border-left: 4px solid #eee;
+    color: #555;
+    font-style: italic;
+}
+
+.originally-published {
+    text-align: center;
+    color: #555;
+}

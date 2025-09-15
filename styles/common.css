@@ -1,0 +1,168 @@
+/* General Reset */
+body, h1, h2, h3, h4, p, img, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    /* Use a system UI sans-serif font for the main body text, with a generic fallback */
+    font-family: ui-sans-serif, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scroll effect */
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between image and name */
+}
+
+.profile-pic {
+    width: 80px; /* Adjust size as needed */
+    height: 80px; /* Adjust size as needed */
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+header h1 a {
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent */
+}
+
+header h1 {
+    font-size: 2.5rem;
+    /* Use Poppins for the main heading, with a fallback to a generic sans-serif font */
+    font-family: 'Poppins', sans-serif;
+    color: #222;
+}
+
+/* Navigation Menu Styling */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover, header.scrolled nav a:hover {
+    color: #007bff; /* A highlight color on hover */
+}
+
+header.scrolled nav a {
+    color: #fff; /* Light text for scrolled header */
+}
+/* Scrolled Header Styling */
+header.scrolled {
+    background-color: #333; /* Dark background */
+    color: #fff; /* Light text */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a shadow */
+}
+
+/* Main Section Styling */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Page Title Styling (Common) */
+.page-title {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+/* Main Content Paragraph Styling (Common) */
+main p {
+    font-size: 1rem;
+    font-family: ui-sans-serif, sans-serif;
+    color: #444;
+    text-align: left;
+    margin-bottom: 1em;
+}
+
+/* Main Content Heading Styling (Common) */
+main h3 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+main h4 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-size: 1.1rem;
+}
+
+main ul {
+    list-style-position: inside;
+    padding-left: 1em;
+    margin-bottom: 1em;
+}
+
+/* Footer Styling */
+footer {
+    max-width: 800px; /* Match the width of the main content */
+    margin: 0 auto; /* Center the footer */
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #777;
+    text-align: center; /* Center the text inside the footer */
+    padding: 0 20px; /* Add some padding to match main content on smaller screens */
+}
+
+/* Social Links in Footer */
+.social-links {
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    color: #555;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #222;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+
+    header {
+        flex-direction: column; /* Stack header items vertically */
+        justify-content: center;
+        padding: 20px 15px; /* Adjust padding for smaller screens */
+        gap: 15px; /* Add space between stacked items */
+    }
+}

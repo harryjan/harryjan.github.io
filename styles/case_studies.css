@@ -1,0 +1,52 @@
+/* Styles for the main Case Studies listing page (case_studies.html) */
+
+/* Case Study Card Styling */
+#case-studies-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.case-study-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.case-study-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    height: 100%; /* Ensure cards in the same row have the same height */
+    display: flex;
+    flex-direction: column;
+}
+
+.case-study-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.case-study-banner {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.case-study-content {
+    padding: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-grow: 1; /* Allows content to fill the card height */
+}
+
+.case-study-logo {
+    height: 60px;
+    width: auto;
+    flex-shrink: 0;
+}
+
+.case-study-content p {
+    margin: 0;
+}

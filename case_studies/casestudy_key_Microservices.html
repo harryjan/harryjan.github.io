@@ -1,66 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Study: The Key - Microservice Transformation - Harry Hunter</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../article.css">
-</head>
-<body>
-    <header>
-        <h1><a href="../index.html">Harry Hunter</a></h1>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../cv.html">CV</a></li>
-                <li><a href="../case_studies.html">Case Studies</a></li>
-                <li><a href="../writing.html">Writing</a></li>
-                <li><a href="../books.html">Book Recommendations</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2 class="page-title">Case Study: The Key - Microservice Transformation</h2>
-            <article class="case-study">
-                <h3>Microservice Transformation (2016/17) - Technical Architect</h3>
-              
-                <p><strong>The Customer:</strong> Whole Portfolio</p>
-                <p><strong>The Users:</strong> Development team</p>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Case Study: The Key - Microservice Transformation - Harry Hunter
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&amp;family=Poppins:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <link href="../styles/common.css" rel="stylesheet"/>
+  <link href="../styles/case_studies_articles.css" rel="stylesheet"/>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VE38R5Y66Q">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-                <h4>The Challenge</h4>
-                <p>At The Key, we had a major legacy product with a monolithic codebase that was a nightmare to maintain. This made it difficult to move with agility and deliver new value to our users. The first version was written by the founder in his kitchen, so it was a bit sensitive!</p>
-                <p>The team was running into quality issues, and the number of incidents was increasing. To move forward, reduce incidents, and deliver new features more effectively, I was asked to re-architect the product and plan its migration.</p>
-
-                <h4>The Approach</h4>
-                <p>I adopted a 'Service-Oriented Architecture' or 'Microservices' approach. Working with a team of very smart engineers, we broke apart the monolithic product into core and tangential value streams.</p>
-                <p>For core streams, like 'Identity', we built new standalone services with an API-first approach. This enabled us to iterate quickly on the new service—for example, adding Two-Factor Authentication (2FA) to the identity service—while managing dependencies, as long as the API schema remained fixed.</p>
-                <p>For other value streams, we made value-based judgments on whether it was worthwhile to re-architect the functionality or leave it as is within the monolith.</p>
-
-                <h4>Key Insights</h4>
-                <ul>
-                    <li><strong>Focus on core value streams:</strong> Not everything needs to be rebuilt. By identifying the most critical and problematic parts of the application, we could focus our efforts where they would have the most impact.</li>
-                    <li><strong>API-first is key for decoupling:</strong> Designing services with a stable API contract allowed teams to work independently and reduced the risk of breaking changes.</li>
-                    <li><strong>Value-based decisions are crucial:</strong> A pragmatic approach, weighing the cost and benefit of re-architecting each component, prevents over-engineering and ensures resources are spent wisely.</li>
-                </ul>
-
-                <h4>The Outcome</h4>
-                <p>In the end, we only re-architected around 30% of the product from the ground up. However, this targeted approach allowed us to reduce incidents and escalations for the product by 70%, significantly improving stability and enabling the development team to focus on delivering new features rather than firefighting.</p>
-
-            </article>
-        </section>
-    </main>
-    <footer>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/harryhunter/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://x.com/harryjan" target="_blank" rel="noopener noreferrer">X/Twitter</a>
-            <a href="https://harryhunter.substack.com/" target="_blank" rel="noopener noreferrer">Substack</a>
-        </div>
-        <p>&copy; 2025 Harry Hunter. All rights reserved.</p>
-    </footer>
-    <script src="../script.js"></script> 
+      gtag('config', 'G-VE38R5Y66Q');
+  </script>
+ </head>
+ <body>
+  <header>
+   <h1>
+    <a href="../index.html">
+     Harry Hunter
+    </a>
+   </h1>
+   <nav>
+    <ul>
+     <li>
+      <a href="../index.html">
+       Home
+      </a>
+     </li>
+     <li>
+      <a href="../cv.html">
+       CV
+      </a>
+     </li>
+     <li>
+      <a href="../case_studies.html">
+       Case Studies
+      </a>
+     </li>
+     <li>
+      <a href="../writing.html">
+       Writing
+      </a>
+     </li>
+     <li>
+      <a href="../books.html">
+       Book Recommendations
+      </a>
+     </li>
+    </ul>
+   </nav>
+  </header>
+  <main>
+   <section>
+    <h2 class="page-title">
+     Case Study: The Key - Microservice Transformation
+    </h2>
+    <article class="case-study">
+     <h3>
+      Microservice Transformation (2016/17) - Technical Architect
+     </h3>
+     <p>
+      <strong>
+       The Customer:
+      </strong>
+      Whole Portfolio
+     </p>
+     <p>
+      <strong>
+       The Users:
+      </strong>
+      Development team
+     </p>
+     <h4>
+      The Challenge
+     </h4>
+     <p>
+      At The Key, we had a major legacy product with a monolithic codebase that was a nightmare to maintain. This made it difficult to move with agility and deliver new value to our users. The first version was written by the founder in his kitchen, so it was a bit sensitive!
+     </p>
+     <p>
+      The team was running into quality issues, and the number of incidents was increasing. To move forward, reduce incidents, and deliver new features more effectively, I was asked to re-architect the product and plan its migration.
+     </p>
+     <h4>
+      The Approach
+     </h4>
+     <p>
+      I adopted a 'Service-Oriented Architecture' or 'Microservices' approach. Working with a team of very smart engineers, we broke apart the monolithic product into core and tangential value streams.
+     </p>
+     <p>
+      For core streams, like 'Identity', we built new standalone services with an API-first approach. This enabled us to iterate quickly on the new service—for example, adding Two-Factor Authentication (2FA) to the identity service—while managing dependencies, as long as the API schema remained fixed.
+     </p>
+     <p>
+      For other value streams, we made value-based judgments on whether it was worthwhile to re-architect the functionality or leave it as is within the monolith.
+     </p>
+     <h4>
+      Key Insights
+     </h4>
+     <ul>
+      <li>
+       <strong>
+        Focus on core value streams:
+       </strong>
+       Not everything needs to be rebuilt. By identifying the most critical and problematic parts of the application, we could focus our efforts where they would have the most impact.
+      </li>
+      <li>
+       <strong>
+        API-first is key for decoupling:
+       </strong>
+       Designing services with a stable API contract allowed teams to work independently and reduced the risk of breaking changes.
+      </li>
+      <li>
+       <strong>
+        Value-based decisions are crucial:
+       </strong>
+       A pragmatic approach, weighing the cost and benefit of re-architecting each component, prevents over-engineering and ensures resources are spent wisely.
+      </li>
+     </ul>
+     <h4>
+      The Outcome
+     </h4>
+     <p>
+      In the end, we only re-architected around 30% of the product from the ground up. However, this targeted approach allowed us to reduce incidents and escalations for the product by 70%, significantly improving stability and enabling the development team to focus on delivering new features rather than firefighting.
+     </p>
+    </article>
+   </section>
+  </main>
+  <footer>
+   <div class="social-links">
+    <a href="https://www.linkedin.com/in/harryhunter/" rel="noopener noreferrer" target="_blank">
+     LinkedIn
+    </a>
+    <a href="https://x.com/harryjan" rel="noopener noreferrer" target="_blank">
+     X/Twitter
+    </a>
+    <a href="https://harryhunter.substack.com/" rel="noopener noreferrer" target="_blank">
+     Substack
+    </a>
+   </div>
+   <p>
+    © 2025 Harry Hunter. All rights reserved.
+   </p>
+  </footer>
+  <script src="../script.js">
+  </script>
+ </body>
 </html>

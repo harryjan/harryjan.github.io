@@ -1,0 +1,13 @@
+.writing-source-header {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Adjust the space between the logo and text */
+}
+
+.writing-source-title {
+    margin-top: 0; /* Override the default margin from common.css */
+    margin-bottom: 0.5em;
+}
+.writing-banner-logo {
+    height: 52px; /* You can adjust this to get the desired logo size */
+}
