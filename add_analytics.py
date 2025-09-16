@@ -1,54 +1,61 @@
-#!/usr/bin/env python3
 import os
 
-def main():
+def update_gtag_id_in_file(file_path, old_id, new_id):
     """
-    Finds all HTML files in the project and inserts the Google Analytics
-    tracking snippet before the closing </head> tag.
+    Replaces the old Google Tag ID with the new one in a given file.
+
+    Args:
+        file_path (str): The path to the HTML file.
+        old_id (str): The placeholder or old GTag ID to be replaced.
+        new_id (str): The new GTag ID.
     """
-    # --- Configuration ---
-    # IMPORTANT: Replace with your actual Google Analytics Measurement ID.
-    ga_measurement_id = "GTM-K2TRN682"
-    
-    # Hardcoded ID to check for to prevent duplicates from previous failed runs
-    previous_ga_id = "GTM-K2TRN682"
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            content = file.read()
 
-    # The Google Analytics snippet to be inserted.
-    ga_snippet = f"""    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={ga_measurement_id}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){{dataLayer.push(arguments);}}
-      gtag('js', new Date());
-    
-      gtag('config', '{ga_measurement_id}');
-    </script>
-"""
+        # Check if the old ID exists and if the new ID is already present
+        if old_id not in content:
+            # If the old ID isn't there, no action is needed for this file.
+            # We can print a message for verbosity or just skip it silently.
+            # print(f"ID '{old_id}' not found in {file_path}. Skipping.")
+            return
 
-    # --- Script Logic ---
-    project_root = os.path.dirname(os.path.abspath(__file__))
-    print("Starting to scan for HTML files...")
+        new_content = content.replace(old_id, new_id)
 
-    for root, _, files in os.walk(project_root):
-        for file in files:
-            if file.endswith(".html"):
-                file_path = os.path.join(root, file)
-                with open(file_path, 'r+', encoding='utf-8') as f:
-                    content = f.read()
-                    
-                    # Check if the snippet is already present to avoid duplicates
-                    if ga_measurement_id in content or previous_ga_id in content:
-                        print(f"GA tag already exists in: {file_path}. Skipping.")
-                        continue
+        with open(file_path, 'w', encoding='utf-8') as file:
+            file.write(new_content)
+        
+        print(f"Successfully updated GTag ID in {file_path} to '{new_id}'.")
 
-                    # Insert the snippet before the </head> tag
-                    new_content = content.replace("</head>", f"{ga_snippet}\n</head>", 1)
-                    f.seek(0)
-                    f.write(new_content)
-                    f.truncate()
-                    print(f"Adding GA tag to: {file_path}")
+    except Exception as e:
+        print(f"An error occurred while processing {file_path}: {e}")
 
-    print("Done. Google Analytics tracking script has been added.")
+def update_all_html_files(directory, old_id, new_id):
+    """
+    Walks through a directory and updates the GTag ID in all HTML files.
+
+    Args:
+        directory (str): The root directory to search for HTML files.
+        old_id (str): The placeholder or old GTag ID to be replaced.
+        new_id (str): The new GTag ID.
+    """
+    if not os.path.isdir(directory):
+        print(f"Error: Directory '{directory}' not found.")
+        return
+
+    print(f"Scanning for HTML files in '{directory}'...")
+    for root, _, files in os.walk(directory):
+        for filename in files:
+            if filename.endswith('.html'):
+                file_path = os.path.join(root, filename)
+                update_gtag_id_in_file(file_path, old_id, new_id)
+    print("...Scan complete.")
+
 
 if __name__ == "__main__":
-    main()
+    # The root directory of your portfolio project.
+    portfolio_directory = '/Users/harryhunter/Documents/my-portfolio'
+    old_gtag_id = 'G-YOUR_MEASUREMENT_ID'
+    new_gtag_id = 'GTM-K2TRN682'
+    
+    update_all_html_files(portfolio_directory, old_gtag_id, new_gtag_id)
