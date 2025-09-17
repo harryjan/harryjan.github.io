@@ -1,0 +1,33 @@
+/* Writing Page Specific Styling */
+.writing-section {
+    margin-bottom: 2.5em;
+}
+
+.writing-source-header {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically align items in the middle */
+    gap: 15px; /* Add space between the banner and the text */
+    margin-bottom: 1em;
+}
+
+.writing-banner-logo {
+    height: 60px; /* Adjust height for the banner */
+    object-fit: contain; /* Ensure the whole banner is visible */
+    margin-bottom: 0; /* Remove margin as gap is used now */
+}
+
+.writing-section h3 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+}
+
+.article-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.article-item {
+    margin-bottom: 1.5em;
+    padding-left: 0;
+}
