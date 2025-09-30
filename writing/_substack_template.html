@@ -4,13 +4,13 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>
-   Case Study Title - Harry Hunter
+   {{ARTICLE_TITLE}} - Harry Hunter
   </title>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&amp;family=Poppins:wght@400;700&amp;display=swap" rel="stylesheet"/>
-  <link href="../styles/common.css" rel="stylesheet"/>
-  <link href="../styles/case_studies_articles.css" rel="stylesheet"/>
+  <link href="../../styles/common.css" rel="stylesheet"/>
+  <link href="../../styles/writing_articles.css" rel="stylesheet"/>
   <!-- Google tag (gtag.js) -->
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VE38R5Y66Q">
   </script>
@@ -25,39 +25,39 @@
  <body>
   <header>
    <h1>
-    <a href="../index.html">
+    <a href="../../index.html">
      Harry Hunter
     </a>
    </h1>
    <nav>
     <ul>
      <li>
-      <a href="../index.html">
+      <a href="../../index.html">
        Home
       </a>
      </li>
      <li>
-      <a href="../consulting.html">
+      <a href="../../consulting.html">
        Consulting
       </a>
      </li>
      <li>
-      <a href="../cv.html">
+      <a href="../../cv.html">
        CV
       </a>
      </li>
      <li>
-      <a href="../case_studies.html">
+      <a href="../../case_studies.html">
        Case Studies
       </a>
      </li>
      <li>
-      <a href="../writing.html">
+      <a href="../../writing.html">
        Writing
       </a>
      </li>
      <li>
-      <a href="../books.html">
+      <a href="../../books.html">
        Books
       </a>
      </li>
@@ -65,26 +65,32 @@
    </nav>
   </header>
   <main>
-   <section>
+   <article class="article-content">
     <h2 class="page-title">
-     Case Study: [Case Study Title]
+     {{ARTICLE_TITLE}}
     </h2>
-    <article class="case-study">
-     <!-- Your case study content goes here -->
-     <p>
-      This is a placeholder for your case study content. You can add text, images, presentations, etc.
-     </p>
-    </article>
-   </section>
+    <p class="originally-published">
+     <em>
+      Originally published on
+      <a href="{{SUBSTACK_URL}}" rel="noopener noreferrer" target="_blank">
+       Substack
+      </a>
+      on {{PUBLISH_DATE}}.
+     </em>
+    </p>
+    {{ARTICLE_BODY}}
+   </article>
   </main>
   <footer>
    <div class="social-links">
     <a href="https://www.linkedin.com/in/harryhunter/" rel="noopener noreferrer" target="_blank">
      LinkedIn
     </a>
+    |
     <a href="https://x.com/harryjan" rel="noopener noreferrer" target="_blank">
-     X/Twitter
+     X
     </a>
+    |
     <a href="https://harryhunter.substack.com/" rel="noopener noreferrer" target="_blank">
      Substack
     </a>
@@ -93,7 +99,7 @@
     © 2025 Harry Hunter. All rights reserved.
    </p>
   </footer>
-  <script src="../script.js">
+  <script src="../../script.js">
   </script>
  </body>
 </html>
