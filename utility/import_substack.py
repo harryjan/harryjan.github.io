@@ -75,34 +75,69 @@ def clean_html(html_content):
 
 def add_to_writing_page(article_title, article_path, publish_date):
     """
-    Adds a link to the new article to the main writing.html page.
+    Adds a link to the new article to the main writing.html page, and sorts the list.
     """
-    print("Adding link to writing.html...")
+    print("Adding link to writing.html and sorting...")
     try:
         with open(WRITING_PAGE_PATH, 'r', encoding='utf-8') as f:
             soup = BeautifulSoup(f, 'html.parser')
 
-        # Find the "Newsletter" section and its article list
         newsletter_header = soup.find('h3', string=re.compile(r'\s*Newsletter\s*'))
         if not newsletter_header:
-            print("Could not find '<h3>Newsletter</h3>' section in writing.html. Skipping update.")
+            print("Could not find '<h3>Newsletter</h3>' section. Skipping update.")
             return
 
-        article_list = newsletter_header.find_next_sibling('ul', class_='article-list')
-        if not article_list:
-            # If the list doesn't exist, create it after the newsletter paragraph
+        article_list_ul = newsletter_header.find_next_sibling('ul', class_='article-list')
+        if not article_list_ul:
             p_tag = newsletter_header.find_next_sibling('p')
-            article_list = soup.new_tag('ul', **{'class': 'article-list'})
-            p_tag.insert_after(article_list)
+            article_list_ul = soup.new_tag('ul', **{'class': 'article-list'})
+            p_tag.insert_after(article_list_ul)
 
-        # Create the new list item
+        # --- Create the new article entry ---
         new_li = soup.new_tag('li', **{'class': 'article-item'})
-        new_li.string = f"[{publish_date.strftime('%Y-%m-%d')}] "
+        date_str = f"[{publish_date.strftime('%Y-%m-%d')}] "
+        new_li.append(date_str)
+        
         new_a = soup.new_tag('a', href=os.path.relpath(article_path, ROOT_DIR).replace('\\', '/'))
         new_a.string = article_title
-        new_li.append(new_a)
+        
+        # Wrap the link in <strong> for basic formatting
+        strong_tag = soup.new_tag('strong')
+        strong_tag.append(new_a)
+        new_li.append(strong_tag)
 
-        article_list.insert(0, new_li) # Prepend to the top of the list
+        # --- Read existing articles, add the new one, and sort ---
+        articles = []
+        
+        # Add the new article first
+        articles.append({
+            'date': publish_date.date(),
+            'html': new_li
+        })
+
+        # Regex to find dates in the format [YYYY-MM-DD]
+        date_regex = re.compile(r'\[(\d{4}-\d{2}-\d{2})\]')
+
+        for li in article_list_ul.find_all('li', class_='article-item'):
+            # Check if the current li is the one we just created to avoid duplicates
+            if li.find('a', href=os.path.relpath(article_path, ROOT_DIR).replace('\\', '/')):
+                continue
+
+            match = date_regex.search(li.get_text())
+            if match:
+                article_date = datetime.strptime(match.group(1), '%Y-%m-%d').date()
+                articles.append({
+                    'date': article_date,
+                    'html': li
+                })
+        
+        # Sort articles by date, newest first
+        articles.sort(key=lambda x: x['date'], reverse=True)
+
+        # --- Clear the list and add the sorted articles back ---
+        article_list_ul.clear()
+        for article in articles:
+            article_list_ul.append(article['html'])
 
         with open(WRITING_PAGE_PATH, 'w', encoding='utf-8') as f:
             f.write(str(soup.prettify()))
