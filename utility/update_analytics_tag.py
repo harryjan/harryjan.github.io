@@ -1,5 +1,11 @@
+#!/usr/bin/env python3
 import os
+import sys
 import re
+
+# Import central configuration
+sys.path.insert(0, os.path.dirname(__file__))
+from config import BASE_DIR, GA_MEASUREMENT_ID
 
 def update_analytics_in_file(file_path, new_id):
     """
@@ -16,24 +22,17 @@ def update_analytics_in_file(file_path, new_id):
 
         original_content = content
         
-        # This regex finds all gtag('config', '...') lines.
+        # Regex finds all gtag('config', '...') lines.
         config_pattern = re.compile(r"gtag\('config', 'G(TM)?-[A-Z0-9]+'\);")
-        
-        # Find all existing config lines
         config_lines = config_pattern.findall(content)
 
-        # If there are any config lines, replace them with a single, correct one.
         if config_lines:
-            # Replace the first occurrence with the new ID
             content = config_pattern.sub(f"gtag('config', '{new_id}');", content, 1)
             
-            # Remove any other duplicate config lines
             remaining_configs = config_pattern.findall(content)
             if len(remaining_configs) > 0:
                  content = config_pattern.sub("", content)
-                 # And add back the one correct one
                  content = content.replace("gtag('js', new Date());", f"gtag('js', new Date());\n\n      gtag('config', '{new_id}');")
-
 
         # Also replace the ID in the script src URL
         content = re.sub(r'id=GTM-[A-Z0-9]+', f'id={new_id}', content)
@@ -48,10 +47,10 @@ def update_analytics_in_file(file_path, new_id):
 
 def main():
     """Main function to run the script."""
-    portfolio_directory = '/Users/harryhunter/Documents/my-portfolio'
-    # IMPORTANT: Replace this with your actual Google Analytics 4 Measurement ID
-    new_measurement_id = 'G-VE38R5Y66Q'
+    portfolio_directory = BASE_DIR
+    new_measurement_id = GA_MEASUREMENT_ID
 
+    print(f"Updating GA tag across HTML files using ID '{new_measurement_id}'...")
     for root, _, files in os.walk(portfolio_directory):
         for filename in files:
             if filename.endswith('.html'):

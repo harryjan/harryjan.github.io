@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 import os
+import sys
 from bs4 import BeautifulSoup
+
+# Import central configuration
+sys.path.insert(0, os.path.dirname(__file__))
+from config import BASE_DIR
 
 def create_header_html(soup, relative_path_prefix):
     """
@@ -65,7 +70,6 @@ def sync_header_in_file(file_path, root_dir):
         if relative_path_to_root == '.':
             relative_path_prefix = ''
         else:
-            # os.path.join will correctly handle path separators
             relative_path_prefix = os.path.join(relative_path_to_root, '').replace('\\', '/')
 
         # Generate the new header with correct paths
@@ -84,10 +88,10 @@ def sync_header_in_file(file_path, root_dir):
 
 def main():
     """Walks through the project directory and syncs headers in all HTML files."""
-    portfolio_dir = '/Users/harryhunter/Documents/1_dev_projects/my-portfolio'
+    portfolio_dir = BASE_DIR
     exclude_dirs = {os.path.join(portfolio_dir, 'utility')}
 
-    print("Starting to sync headers across all HTML files...")
+    print(f"Starting to sync headers across all HTML files in '{portfolio_dir}'...")
     for root, dirs, files in os.walk(portfolio_dir):
         dirs[:] = [d for d in dirs if os.path.join(root, d) not in exclude_dirs]
         for filename in files:

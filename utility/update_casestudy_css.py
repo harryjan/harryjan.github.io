@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 import os
+import sys
 from bs4 import BeautifulSoup
+
+# Import central configuration
+sys.path.insert(0, os.path.dirname(__file__))
+from config import CASE_STUDIES_DIR
 
 def update_casestudy_html(file_path):
     """
@@ -28,13 +33,12 @@ def update_casestudy_html(file_path):
                 casestudies_css_link = soup.new_tag('link', rel='stylesheet', href='../styles/case_studies_articles.css')
                 
                 # Find the last <link> tag to insert the new ones after
-                # This helps keep the new links at the end of the other links.
                 all_links = head.find_all('link', href=True)
                 if all_links:
                     last_link_tag = all_links[-1]
-                    last_link_tag.insert_after(casestudies_css_link) # Insert new specific CSS
+                    last_link_tag.insert_after(casestudies_css_link)
                     last_link_tag.insert_after(common_css_link)
-                else: # If no links exist, just append them to head
+                else:
                     head.append(common_css_link)
                     head.append(casestudies_css_link)
                 made_changes = True
@@ -49,10 +53,14 @@ def update_casestudy_html(file_path):
 
 def main():
     """Walks through the 'case_studies' directory and updates all HTML files."""
-    case_studies_dir = '/Users/harryhunter/Documents/my-portfolio/case_studies'
+    case_studies_dir = CASE_STUDIES_DIR
     # Exclude sub-landing pages which should use case_studies.css, not case_studies_articles.css
     exclude_files = ['thekey.html', 'atkinsrealis.html']
     
+    if not os.path.exists(case_studies_dir):
+        print(f"Error: Directory '{case_studies_dir}' does not exist.")
+        return
+
     print("Starting to update case study CSS links...")
     for filename in os.listdir(case_studies_dir):
         if filename.endswith('.html'):

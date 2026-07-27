@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 import os
+import sys
 from bs4 import BeautifulSoup
+
+# Import central configuration
+sys.path.insert(0, os.path.dirname(__file__))
+from config import WRITING_DIR
 
 def update_article_html(file_path):
     """
@@ -15,7 +20,6 @@ def update_article_html(file_path):
         made_changes = False
 
         # --- Header Cleanup ---
-        # Find and remove the extra profile picture from article headers
         extra_profile_pic = soup.select_one('header > img.profile-pic')
         if extra_profile_pic:
             extra_profile_pic.decompose()
@@ -24,21 +28,22 @@ def update_article_html(file_path):
         # --- Stylesheet Link Cleanup ---
         head = soup.find('head')
         if head:
-            # Find all old stylesheet links that need replacing
             old_links = head.find_all('link', rel='stylesheet', href=lambda href: href and ('style.css' in href or 'article.css' in href))
             if old_links:
-                # Remove all old links
                 for link in old_links:
                     link.decompose()
                 
-                # Create the new, correct links
                 common_css_link = soup.new_tag('link', rel='stylesheet', href='../../styles/common.css')
                 articles_css_link = soup.new_tag('link', rel='stylesheet', href='../../styles/writing_articles.css')
                 
-                # Find the last <link> tag to insert the new ones after
-                last_link_tag = head.find_all('link', href=True)[-1]
-                last_link_tag.insert_after(articles_css_link)
-                last_link_tag.insert_after(common_css_link)
+                all_links = head.find_all('link', href=True)
+                if all_links:
+                    last_link_tag = all_links[-1]
+                    last_link_tag.insert_after(articles_css_link)
+                    last_link_tag.insert_after(common_css_link)
+                else:
+                    head.append(common_css_link)
+                    head.append(articles_css_link)
                 made_changes = True
 
         if made_changes:
@@ -53,10 +58,12 @@ def main():
     """
     Walks through the 'writing' directory and updates all HTML files.
     """
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    portfolio_root = os.path.dirname(script_dir)
-    writing_dir = os.path.join(portfolio_root, 'writing')
+    writing_dir = WRITING_DIR
     
+    if not os.path.exists(writing_dir):
+        print(f"Error: Directory '{writing_dir}' does not exist.")
+        return
+
     print("Starting to update article CSS links...")
     for root, _, files in os.walk(writing_dir):
         for file in files:

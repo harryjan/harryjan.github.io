@@ -1,4 +1,10 @@
+#!/usr/bin/env python3
 import os
+import sys
+
+# Import central configuration
+sys.path.insert(0, os.path.dirname(__file__))
+from config import BASE_DIR, GA_MEASUREMENT_ID
 
 def update_gtag_id_in_file(file_path, old_id, new_id):
     """
@@ -13,11 +19,7 @@ def update_gtag_id_in_file(file_path, old_id, new_id):
         with open(file_path, 'r', encoding='utf-8') as file:
             content = file.read()
 
-        # Check if the old ID exists and if the new ID is already present
         if old_id not in content:
-            # If the old ID isn't there, no action is needed for this file.
-            # We can print a message for verbosity or just skip it silently.
-            # print(f"ID '{old_id}' not found in {file_path}. Skipping.")
             return
 
         new_content = content.replace(old_id, new_id)
@@ -53,9 +55,8 @@ def update_all_html_files(directory, old_id, new_id):
 
 
 if __name__ == "__main__":
-    # The root directory of your portfolio project.
-    portfolio_directory = '/Users/harryhunter/Documents/my-portfolio'
+    portfolio_directory = BASE_DIR
     old_gtag_id = 'G-YOUR_MEASUREMENT_ID'
-    new_gtag_id = 'GTM-K2TRN682'
+    new_gtag_id = GA_MEASUREMENT_ID
     
     update_all_html_files(portfolio_directory, old_gtag_id, new_gtag_id)
