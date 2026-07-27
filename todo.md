@@ -22,7 +22,7 @@
 - [x] Create `README.md` with project overview, directory structure, utility usage, and deployment guide
 
 ### GitHub Pages Workflow
-- [ ] Update `.github/workflows/jekyll-gh-pages.yml` to standard static HTML deployment action (remove Jekyll build step)
+- [x] Update `.github/workflows/deploy.yml` to standard static HTML deployment action (remove Jekyll build step)
 
 ---
 
