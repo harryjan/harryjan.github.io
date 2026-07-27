@@ -11,16 +11,16 @@
 - [ ] Add command-line arguments to utility scripts (--root flag or similar)
 
 ### Python Dependencies
-- [ ] Create `requirements.txt` file listing: beautifulsoup4, feedparser
-- [ ] Document virtual environment setup in README
+- [x] Create `requirements.txt` file listing: beautifulsoup4, feedparser
+- [x] Document virtual environment setup in README
 
 ### Documentation
-- [ ] Create README.md with:
-  - [ ] Project overview
-  - [ ] Setup instructions (including Python dependencies)
-  - [ ] Usage guide for utility scripts
-  - [ ] Deployment instructions
-  - [ ] Contributing guidelines (if applicable)
+- [x] Create README.md with:
+  - [x] Project overview
+  - [x] Setup instructions (including Python dependencies)
+  - [x] Usage guide for utility scripts
+  - [x] Deployment instructions
+  - [x] Contributing guidelines (if applicable)
 
 ### GitHub Workflow
 - [ ] Remove Jekyll-specific steps from `.github/workflows/jekyll-gh-pages.yml`
@@ -28,9 +28,9 @@
 - [ ] Or convert the site to a proper Jekyll setup if desired
 
 ### Configuration Management
-- [ ] Create a central configuration file (e.g., `utility/config.py`) or JSON file
-- [ ] Extract analytics ID from hard-coded strings
-- [ ] Make analytics tracking ID configurable via environment variable or config file
+- [x] Create a central configuration file (`utility/config.py`)
+- [x] Extract analytics ID from hard-coded strings
+- [x] Make analytics tracking ID configurable via environment variable or config file
 
 ---
 
